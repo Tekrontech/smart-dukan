@@ -83,6 +83,51 @@ class UsedPhoneService {
     });
   }
 
+  /// Deletes the seller's identity data (CNIC number and photos) on request
+  /// or at the end of retention. The financial record stays (spec 9).
+  /// [shred] overwrites and removes each encrypted photo file.
+  Future<void> deleteIdentity(String id, Future<void> Function(String name) shred, {String reason = 'request'}) async {
+    final doc = await (db.select(db.usedPhonePurchases)..where((x) => x.id.equals(id))).getSingleOrNull();
+    if (doc == null) return;
+    for (final f in [doc.cnicFrontPath, doc.cnicBackPath]) {
+      if (f != null) await shred(f);
+    }
+    await posting.run((p) async {
+      await (db.update(db.usedPhonePurchases)..where((x) => x.id.equals(id))).write(UsedPhonePurchasesCompanion(
+        sellerCnic: const Value(null),
+        cnicFrontPath: const Value(null),
+        cnicBackPath: const Value(null),
+        identityPurgedAt: Value(p.now),
+        updatedAt: Value(p.now),
+      ));
+      await (db.update(db.parties)..where((x) => x.id.equals(doc.sellerPartyId)))
+          .write(PartiesCompanion(cnic: const Value(null), updatedAt: Value(p.now)));
+      await p.audit('used_phone', id, 'delete_identity', after: {'reason': reason});
+    });
+  }
+
+  /// Retention (default 12 months after the device was sold): purges
+  /// identity data of phones sold more than [months] ago. Returns how many
+  /// records were purged.
+  Future<int> purgeExpiredIdentity({required int months, required Future<void> Function(String name) shred}) async {
+    final now = ctx.clock();
+    final cutoff = DateTime(now.year, now.month - months, now.day);
+    final rows = await db.customSelect(
+      'SELECT up.id i FROM used_phone_purchases up JOIN imei_units u ON u.id = up.imei_unit_id '
+      'JOIN sales s ON s.id = u.sale_ref_id '
+      "WHERE up.identity_purged_at IS NULL AND u.status = 'sold' AND s.date < ? "
+      'AND (up.seller_cnic IS NOT NULL OR up.cnic_front_path IS NOT NULL OR up.cnic_back_path IS NOT NULL)',
+      variables: [Variable.withDateTime(cutoff)],
+    ).get();
+    for (final r in rows) {
+      await deleteIdentity(r.read<String>('i'), shred, reason: 'retention');
+    }
+    return rows.length;
+  }
+
+  /// Logs every view of CNIC data (spec 9).
+  Future<void> logCnicView(String id) => posting.run((p) => p.audit('used_phone', id, 'view_cnic'));
+
   /// Reverses a used-phone purchase while the phone is still in stock.
   Future<String> reverse(String id) => posting.run((p) async {
         final doc = await (db.select(db.usedPhonePurchases)..where((x) => x.id.equals(id))).getSingleOrNull();

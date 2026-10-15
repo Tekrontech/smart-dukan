@@ -3,14 +3,12 @@
   "appTitle": "Smart Dukan",
   "tagline": "Your accounts, only on your phone.",
   "offlineSafe": "Offline • Safe",
-
   "tabHome": "Home",
   "tabSale": "Sale",
   "tabKhata": "Khata",
   "tabStock": "Stock",
   "tabMore": "More",
   "newSale": "New Sale",
-
   "homeTitle": "Today's Accounts",
   "todaySale": "Today's Sale",
   "galla": "Cash in Hand",
@@ -21,7 +19,6 @@
   "qistDueToday": "Qist Due Today",
   "repairsReady": "Repairs Ready",
   "proBadge": "PRO",
-
   "quickActions": "Quick Actions",
   "purchase": "Purchase",
   "paymentIn": "Receive Payment",
@@ -31,7 +28,6 @@
   "recentActivity": "Recent Activity",
   "noActivityTitle": "No entries yet",
   "noActivityBody": "Your sales, payments and expenses will show here.",
-
   "saleEmptyTitle": "Start selling",
   "saleEmptyBody": "Add products to stock first, then record sales here.",
   "khataEmptyTitle": "No customers or suppliers yet",
@@ -43,7 +39,6 @@
   "customers": "Customers",
   "suppliers": "Suppliers",
   "comingSoon": "This feature is coming in an upcoming update.",
-
   "settings": "Settings",
   "language": "Language",
   "languageEnglish": "English",
@@ -55,11 +50,909 @@
   "themeDark": "Dark",
   "about": "About",
   "version": "Version {version}",
-  "@version": { "placeholders": { "version": { "type": "String" } } },
-
+  "@version": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
   "amount": "Amount",
   "done": "Done",
   "cancel": "Cancel",
   "confirm": "Confirm",
-  "walkIn": "Walk-in"
+  "walkIn": "Walk-in",
+  "save": "Save",
+  "add": "Add",
+  "edit": "Edit",
+  "next": "Next",
+  "back": "Back",
+  "skip": "Skip",
+  "close": "Close",
+  "search": "Search",
+  "share": "Share",
+  "print": "Print",
+  "call": "Call",
+  "copy": "Copy",
+  "copied": "Copied",
+  "undo": "Undo",
+  "yes": "Yes",
+  "no": "No",
+  "all": "All",
+  "none": "None",
+  "optional": "Optional",
+  "required": "Required",
+  "name": "Name",
+  "phone": "Phone",
+  "city": "City",
+  "address": "Address",
+  "note": "Note",
+  "date": "Date",
+  "total": "Total",
+  "subtotal": "Subtotal",
+  "discount": "Discount",
+  "tax": "Tax",
+  "delivery": "Delivery",
+  "paid": "Paid",
+  "due": "Due",
+  "balance": "Balance",
+  "quantity": "Quantity",
+  "price": "Price",
+  "cost": "Cost",
+  "status": "Status",
+  "details": "Details",
+  "today": "Today",
+  "yesterday": "Yesterday",
+  "thisWeek": "This week",
+  "thisMonth": "This month",
+  "customRange": "Custom",
+  "loading": "Loading…",
+  "nothingFound": "Nothing found",
+  "saved": "Saved",
+  "reversed": "Reversed",
+  "reverse": "Reverse",
+  "reverseConfirmTitle": "Reverse this entry?",
+  "reverseConfirmBody": "A reversal entry is created. Nothing is deleted.",
+  "walkInCustomer": "Walk-in customer",
+  "methodCash": "Cash",
+  "methodBank": "Bank",
+  "methodJazzcash": "JazzCash",
+  "methodEasypaisa": "Easypaisa",
+  "paymentMethod": "Payment method",
+  "fieldRequired": "This is required",
+  "invalidNumber": "Enter a valid number",
+  "lenaLabel": "To receive",
+  "denaLabel": "To pay",
+  "advanceLabel": "Advance",
+  "settled": "Settled",
+  "items": "Items",
+  "itemsCount": "{count} items",
+  "@itemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pcs": "pcs",
+  "scan": "Scan",
+  "scanTitle": "Point the camera at the barcode",
+  "cameraUnavailable": "Camera not available",
+  "photo": "Photo",
+  "addPhoto": "Add photo",
+  "ownerPinTitle": "Owner PIN",
+  "ownerPinBody": "This action needs the owner PIN.",
+  "wrongPin": "Wrong PIN",
+  "notAllowed": "You do not have permission for this.",
+  "proRequired": "This is a Mobile Shop Pro feature.",
+  "getPro": "Get Pro",
+  "rs": "Rs",
+  "errUnbalanced": "Entry does not balance. Nothing was saved.",
+  "errInvalidAmount": "Check the amount.",
+  "errInvalidInput": "Some details are missing or wrong.",
+  "errEmpty": "Add at least one item.",
+  "errStock": "Not enough stock.",
+  "errImeiRequired": "Select or scan the IMEI.",
+  "errImeiNotAvailable": "This IMEI is not in stock.",
+  "errImeiDuplicate": "This IMEI is already in stock.",
+  "errPartyRequired": "Udhaar needs a named customer.",
+  "errOverReturn": "Cannot return more than was sold.",
+  "errBelowMin": "Price is below the minimum sale price.",
+  "errAlreadyReversed": "Already reversed.",
+  "errCannotReverse": "This cannot be reversed. Use a return instead.",
+  "errOverpayment": "Amount is more than what is due.",
+  "errNotFound": "Record not found.",
+  "errDayClosed": "Galla is already closed for today.",
+  "errGeneric": "Something went wrong. Nothing was saved.",
+  "chooseLanguage": "Choose your language",
+  "shopSetupTitle": "Your shop",
+  "shopName": "Shop name",
+  "ownerName": "Owner name",
+  "businessType": "Business type",
+  "btMobileShop": "Mobile Shop",
+  "btKiryana": "Kiryana",
+  "btGarments": "Garments",
+  "btPharmacy": "Pharmacy",
+  "btWholesale": "Wholesale",
+  "btOther": "Other",
+  "demoTitle": "See with demo data?",
+  "demoBody": "Load a sample mobile shop to try everything. You can wipe it with one button later.",
+  "demoYes": "Yes, load demo",
+  "demoNo": "No, start clean",
+  "setPinTitle": "Set a 4-digit PIN",
+  "setPinBody": "The PIN keeps your accounts private.",
+  "confirmPinTitle": "Enter the PIN again",
+  "pinMismatch": "PINs do not match. Try again.",
+  "enableFingerprint": "Unlock with fingerprint",
+  "settingUp": "Setting up your shop…",
+  "startUsing": "Start",
+  "coachNewSale": "Tap here to record a sale in seconds.",
+  "coachAddStock": "Add your products in Stock.",
+  "coachKhata": "Keep every customer’s udhaar in Khata.",
+  "gotIt": "Got it",
+  "enterPin": "Enter PIN",
+  "whoIsUsing": "Who is using the app?",
+  "useFingerprint": "Use fingerprint",
+  "biometricReason": "Unlock Smart Dukan",
+  "tooManyAttempts": "Too many wrong tries. Wait {seconds} seconds.",
+  "@tooManyAttempts": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "lockNow": "Lock now",
+  "shopProfile": "Shop profile",
+  "invoiceSettings": "Invoice settings",
+  "invoicePrefix": "Invoice prefix",
+  "invoiceFooter": "Invoice footer",
+  "invoiceTerms": "Terms",
+  "urduDigits": "Urdu digits (۱۲۳)",
+  "securitySection": "Security",
+  "changePin": "Change PIN",
+  "autoLock": "Lock after",
+  "minutes": "{count} min",
+  "@minutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "staffAndRoles": "Staff and roles",
+  "addStaff": "Add staff",
+  "roleOwner": "Owner",
+  "roleManager": "Manager",
+  "roleCashier": "Cashier",
+  "roleTechnician": "Technician",
+  "role": "Role",
+  "active": "Active",
+  "inactive": "Inactive",
+  "pinInUse": "This PIN is already used by someone else.",
+  "lastOwner": "At least one active owner is needed.",
+  "dataSection": "Data",
+  "backupRestore": "Backup and restore",
+  "importExport": "Import / export",
+  "licenseAndPro": "Licence and Pro packs",
+  "helpVideos": "Help videos",
+  "privacyPolicy": "Privacy policy",
+  "licenseTerms": "Licence terms",
+  "healthCheck": "Health check",
+  "healthOk": "All checks passed. Accounts reconcile.",
+  "healthIssues": "{count} problems found",
+  "@healthIssues": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wipeDemo": "Wipe demo data",
+  "wipeDemoBody": "All products, parties and entries will be deleted. Your shop and PIN stay.",
+  "demoWiped": "Demo data wiped",
+  "allowNegativeStock": "Allow selling below zero stock",
+  "cnicFields": "Collect seller CNIC and photos",
+  "cnicRetention": "Delete CNIC photos after",
+  "months": "{count} months",
+  "@months": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "salesTaxSetting": "Charge sales tax on invoices",
+  "demoBadge": "DEMO",
+  "keyLostTitle": "Your data cannot be opened",
+  "keyLostBody": "The phone’s secure key for this data is missing (phone reset or app data cleared). Restore your last backup to get your records back.",
+  "restoreBackup": "Restore backup",
+  "startFresh": "Start fresh",
+  "startFreshConfirm": "The unreadable data on this phone will be deleted. Backups you saved elsewhere are not touched.",
+  "backupNow": "Back up now",
+  "backupPassword": "Backup password",
+  "backupPasswordHint": "At least 6 characters",
+  "backupPasswordConfirm": "Repeat password",
+  "backupWarning": "Write this password down. If you lose it, the backup cannot be opened by anyone — not even us.",
+  "passwordsDontMatch": "Passwords do not match",
+  "backupCreated": "Backup ready. Choose where to keep it.",
+  "backupSavedTo": "Saved: {file}",
+  "@backupSavedTo": {
+    "placeholders": {
+      "file": {
+        "type": "String"
+      }
+    }
+  },
+  "lastBackup": "Last backup: {when}",
+  "@lastBackup": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "neverBackedUp": "No backup yet",
+  "backupReminder": "No backup in 7 days. Back up now to keep your records safe.",
+  "restoreTitle": "Restore from backup",
+  "restoreWarning": "Restoring replaces all data on this phone. Your current data is backed up automatically first.",
+  "chooseBackupFile": "Choose backup file",
+  "restoreFrom": "Restore “{shop}” from {date}?",
+  "@restoreFrom": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "restoreDone": "Restore complete. The app will now reopen.",
+  "errWrongPassword": "Wrong password, or the file was changed.",
+  "errNotBackup": "This is not a Smart Dukan backup file.",
+  "errBackupCorrupt": "The backup file is damaged.",
+  "errBackupNewer": "This backup is from a newer app version. Update the app first.",
+  "workingPleaseWait": "Please wait…",
+  "sectionBusiness": "Business",
+  "sectionDisplay": "Display",
+  "sectionHelp": "Help and legal",
+  "sectionRecords": "Records",
+  "sectionPro": "Mobile Shop Pro",
+  "loggedInAs": "Signed in: {name} ({role})",
+  "@loggedInAs": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "role": {
+        "type": "String"
+      }
+    }
+  },
+  "reports": "Reports",
+  "purchases": "Purchases",
+  "expenses": "Expenses",
+  "payments": "Payments",
+  "salesList": "Sales",
+  "imeiSearch": "IMEI search",
+  "usedPhones": "Used phone purchase",
+  "repairJobs": "Repair jobs",
+  "qistPlans": "Qist plans",
+  "logo": "Logo",
+  "changeLogo": "Change logo",
+  "removeLogo": "Remove logo",
+  "appVersion": "App version",
+  "privacyBody": "Smart Dukan keeps all your data on this phone, in an encrypted database. There is no account and no server, and the app sends nothing over the internet.\n\nWhat is stored: your shop profile, products, stock, customers and suppliers, sales, purchases, payments, expenses, repair jobs and instalment plans.\n\nPhotos: bill photos, device photos and (only if you switch it on) seller CNIC photos are encrypted with a key kept in the phone’s secure keystore. CNIC photos are deleted automatically after the retention period you choose. Only the owner and managers can view CNIC details, and every view is logged.\n\nSharing: data leaves the phone only when you share an invoice, statement or report, or save a backup. Backups are always encrypted with your backup password.\n\nNo analytics, no ads, no tracking. Play Data Safety: no data collected or shared.",
+  "termsBody": "Mobile Shop Pro is a one-time licence for one device. It includes bug fixes and compatibility updates.\n\nTransfer: if you change phones, restore your backup on the new phone and send both Device Codes on WhatsApp. The seller issues a new code for the new phone and marks the old licence as transferred.\n\nKnown limitation: an offline app cannot revoke a copied licence. The licence is bound to your Device Code to make sharing hard, and the seller keeps a register (licence id, Device Code, buyer phone, date) for transfers and disputes.\n\nYour records always stay yours: if Pro is not active, Pro records remain readable and exportable.",
+  "helpVideosBody": "Short videos on recording a sale, adding stock, khata and backup are on our WhatsApp channel. Ask your seller for the link.",
+  "healthCheckHint": "Long-press the app version to open the hidden Health Check.",
+  "runAgain": "Run again",
+  "proActive": "Mobile Shop Pro is active",
+  "proInactive": "Mobile Shop Pro is not active",
+  "proFeatures": "IMEI tracking, used-phone buy/sell, repair jobs, qist plans, branded PDF invoices, staff roles and advanced reports.",
+  "proPrice": "One-time Rs 1,999 per phone (launch price Rs 1,499).",
+  "howToBuy": "How to buy",
+  "howToBuySteps": "1. Pay by JazzCash, Easypaisa or bank.\n2. Send your Device Code on WhatsApp.\n3. Tap the activation link you receive.",
+  "deviceCode": "Device Code",
+  "sendOnWhatsapp": "Send on WhatsApp",
+  "deviceCodeMessage": "Smart Dukan Mobile Shop Pro. My Device Code: {code}",
+  "@deviceCodeMessage": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "activationCode": "Activation code or link",
+  "activate": "Activate",
+  "activated": "Pro activated. Shukriya!",
+  "licMalformed": "This code is not complete. Copy the whole code or tap the link.",
+  "licBadSignature": "This code is not valid. It may have been changed.",
+  "licWrongDevice": "This code is for a different phone. Send this phone’s Device Code to the seller.",
+  "licUnknownPack": "Unknown pack in this code.",
+  "transferTitle": "Moved to a new phone?",
+  "transferBody": "Your backup has a licence from another phone. Send a transfer request; the seller will issue a free code for this phone.",
+  "sendTransfer": "Send transfer request",
+  "transferMessage": "Smart Dukan licence transfer. Old licence: {oldId}, old Device Code: {oldCode}. New Device Code: {newCode}",
+  "@transferMessage": {
+    "placeholders": {
+      "oldId": {
+        "type": "String"
+      },
+      "oldCode": {
+        "type": "String"
+      },
+      "newCode": {
+        "type": "String"
+      }
+    }
+  },
+  "reactivateNeeded": "This phone’s ID changed. Your data is safe and readable; re-activate Pro to use Pro features.",
+  "proRecordsReadable": "Pro records stay readable and exportable even without Pro.",
+  "licenseId": "Licence ID",
+  "saveToPhone": "Save to phone / USB / Drive",
+  "shareBackup": "Send (WhatsApp to self)",
+  "searchProducts": "Search name, SKU, barcode or IMEI",
+  "filterAll": "All",
+  "filterLow": "Low stock",
+  "filterOut": "Out of stock",
+  "filterImei": "IMEI items",
+  "category": "Category",
+  "brand": "Brand",
+  "allCategories": "All categories",
+  "newCategory": "New category",
+  "newBrand": "New brand",
+  "productName": "Product name",
+  "productNameUr": "Name in Urdu",
+  "sku": "SKU",
+  "skuAuto": "SKU (auto if empty)",
+  "barcodes": "Barcodes",
+  "addBarcode": "Add barcode",
+  "unit": "Unit",
+  "bigUnit": "Bigger unit (optional)",
+  "salePrice": "Sale price",
+  "minSalePrice": "Lowest allowed price",
+  "costPrice": "Cost price",
+  "minStockAlert": "Low stock alert at",
+  "tracksImei": "Track IMEI (phones)",
+  "warrantyDays": "Warranty (days)",
+  "variants": "Variants (colour / storage)",
+  "addVariant": "Add variant",
+  "variantLabel": "Variant e.g. 128GB Black",
+  "openingStock": "Opening stock",
+  "openingQty": "Opening quantity",
+  "openingCost": "Cost per unit",
+  "imeiList": "IMEIs",
+  "addImei": "Add IMEI",
+  "imei1": "IMEI 1",
+  "imei2": "IMEI 2 (optional)",
+  "editProduct": "Edit product",
+  "productSaved": "Product saved",
+  "inStock": "In stock",
+  "stockValue": "Stock value",
+  "avgCost": "Average cost",
+  "movementHistory": "Movement history",
+  "noMovements": "No stock movement yet",
+  "adjustStock": "Adjust stock",
+  "reasonDamaged": "Damaged",
+  "reasonLost": "Lost",
+  "reasonFound": "Found",
+  "reasonCount": "Count correction",
+  "countedQty": "Counted quantity",
+  "reasonNote": "Reason / note",
+  "adjusted": "Stock adjusted",
+  "selectImei": "Select IMEI",
+  "imeiInStock": "In stock",
+  "imeiSold": "Sold",
+  "imeiReturned": "Returned",
+  "imeiInRepair": "Under repair",
+  "imeiWrittenOff": "Written off",
+  "mvOpening": "Opening",
+  "mvPurchase": "Purchase",
+  "mvSale": "Sale",
+  "mvSaleReturn": "Sale return",
+  "mvPurchaseReturn": "Purchase return",
+  "mvAdjustment": "Adjustment",
+  "mvRepairPart": "Repair part",
+  "mvUsedPurchase": "Used phone bought",
+  "mvQistRecovery": "Qist device back",
+  "importProducts": "Import from Excel / CSV",
+  "chooseFile": "Choose file",
+  "mapColumns": "Match the columns",
+  "notMapped": "— not used —",
+  "previewRows": "Ready: {ok} rows • Problems: {bad} rows",
+  "@previewRows": {
+    "placeholders": {
+      "ok": {
+        "type": "int"
+      },
+      "bad": {
+        "type": "int"
+      }
+    }
+  },
+  "importNow": "Import {count} products",
+  "@importNow": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importDone": "{count} products imported",
+  "@importDone": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shareErrorReport": "Share error rows report",
+  "rowError": "Row {row}: {message}",
+  "@rowError": {
+    "placeholders": {
+      "row": {
+        "type": "int"
+      },
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldName": "Name",
+  "fieldOpeningQty": "Opening qty",
+  "importHint": "First row must be column names. Supported: .xlsx and .csv",
+  "deactivate": "Hide product",
+  "lowStockBadge": "Low",
+  "outBadge": "Out",
+  "qtyLeft": "{qty} left",
+  "@qtyLeft": {
+    "placeholders": {
+      "qty": {
+        "type": "String"
+      }
+    }
+  },
+  "loadMore": "Load more",
+  "cart": "Cart",
+  "cartEmpty": "Tap a product to add it",
+  "saveSale": "Save",
+  "saveSaleAmount": "Save {amount}",
+  "@saveSaleAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "customer": "Customer",
+  "chooseCustomer": "Choose customer",
+  "quickAddCustomer": "Add new customer",
+  "payCash": "Cash",
+  "payUdhaar": "Udhaar",
+  "payMixed": "Mixed",
+  "payWallet": "Bank / Wallet",
+  "payQist": "Qist",
+  "paidNow": "Paid now",
+  "udhaarPart": "Udhaar",
+  "invoiceDiscount": "Bill discount",
+  "lineDiscount": "Line discount",
+  "editLine": "Quantity and price",
+  "remove": "Remove",
+  "gridView": "Grid",
+  "listView": "List",
+  "saleSaved": "Sale saved",
+  "saleUndone": "Sale undone (reversal saved)",
+  "newSaleAgain": "New Sale",
+  "shareWhatsapp": "Share on WhatsApp",
+  "shareImage": "Share as image",
+  "invoice": "Invoice",
+  "invoiceNo": "Invoice {no}",
+  "@invoiceNo": {
+    "placeholders": {
+      "no": {
+        "type": "String"
+      }
+    }
+  },
+  "creditLimitWarning": "This will cross {name}’s credit limit of {limit}.",
+  "@creditLimitWarning": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "limit": {
+        "type": "String"
+      }
+    }
+  },
+  "continueAnyway": "Continue anyway",
+  "belowMinPriceAsk": "Price is below the minimum. Owner PIN needed.",
+  "returnItems": "Return items",
+  "returnQty": "Return qty",
+  "soldQty": "Sold {sold} • returned {returned}",
+  "@soldQty": {
+    "placeholders": {
+      "sold": {
+        "type": "String"
+      },
+      "returned": {
+        "type": "String"
+      }
+    }
+  },
+  "refundNow": "Refund now",
+  "keepCredit": "Keep as customer credit",
+  "returnValue": "Return value",
+  "returnSaved": "Return saved",
+  "reverseSale": "Reverse sale",
+  "statusPosted": "Posted",
+  "statusReversed": "Reversed",
+  "statusReversal": "Reversal",
+  "returnsOnInvoice": "Returns",
+  "noSales": "No sales yet",
+  "searchInvoice": "Search invoice no. or customer",
+  "openDue": "Still due: {amount}",
+  "@openDue": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "changeDue": "Change to give",
+  "received": "Received",
+  "thankYou": "Thank you! Come again.",
+  "warrantyUntil": "Warranty until {date}",
+  "@warrantyUntil": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "qistTerms": "Qist terms",
+  "markup": "Markup",
+  "downPayment": "Down payment",
+  "installments": "Number of instalments",
+  "weekly": "Weekly",
+  "monthly": "Monthly",
+  "guarantorName": "Guarantor name",
+  "guarantorPhone": "Guarantor phone",
+  "perInstallment": "≈ {amount} each",
+  "@perInstallment": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "qistTotal": "Qist total",
+  "pickImei": "Choose IMEI",
+  "noImeiInStock": "No IMEI of this phone in stock",
+  "soldOutWarn": "Out of stock",
+  "billNote": "Note on bill",
+  "addSupplier": "Add supplier",
+  "partyType": "Type",
+  "typeCustomer": "Customer",
+  "typeSupplier": "Supplier",
+  "typeBoth": "Both",
+  "cnic": "CNIC",
+  "openingBalance": "Opening balance",
+  "openingTheyOwe": "They owe me (Lena)",
+  "openingIOwe": "I owe them (Dena)",
+  "creditLimit": "Credit limit (0 = none)",
+  "editParty": "Edit",
+  "partySaved": "Saved",
+  "ledger": "Ledger",
+  "debit": "Debit",
+  "credit": "Credit",
+  "runningBalance": "Balance",
+  "openingRow": "Opening balance",
+  "paymentReceived": "Payment received",
+  "paymentGiven": "Payment given",
+  "sendReminder": "Send reminder",
+  "shareStatement": "Share statement PDF",
+  "reminderTemplate": "Assalam o Alaikum {name}, {shop} ki taraf se yaad dehani: aapka baqaya Rs {amount} hai. Shukriya.",
+  "@reminderTemplate": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "shop": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "lastActivity": "Last: {date}",
+  "@lastActivity": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "noLedger": "No entries in this period",
+  "srcSale": "Sale",
+  "srcSaleReturn": "Sale return",
+  "srcPurchase": "Purchase",
+  "srcPurchaseReturn": "Purchase return",
+  "srcPayment": "Payment",
+  "srcOpening": "Opening",
+  "srcRepair": "Repair",
+  "srcQist": "Qist",
+  "srcExpense": "Expense",
+  "srcAdjustment": "Adjustment",
+  "srcClosing": "Galla Band",
+  "srcUsedPhone": "Used phone",
+  "srcReversalSuffix": "(reversal)",
+  "dateRange": "Date range",
+  "newPurchase": "New purchase",
+  "supplier": "Supplier",
+  "chooseSupplier": "Choose supplier",
+  "noSupplier": "No supplier (cash purchase)",
+  "supplierBillNo": "Supplier bill no.",
+  "extraCost": "Freight / tax paid",
+  "billPhoto": "Bill photo",
+  "addItem": "Add item",
+  "unitCost": "Cost per unit",
+  "purchaseSaved": "Purchase saved",
+  "paidToSupplier": "Paid now",
+  "duePart": "Due (Dena)",
+  "reversePurchase": "Reverse purchase",
+  "noPurchases": "No purchases yet",
+  "selectImeisToReturn": "Select IMEIs to return",
+  "enterImeis": "Enter {count} IMEIs",
+  "@enterImeis": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "paymentInTitle": "Receive payment",
+  "paymentOutTitle": "Make payment",
+  "party": "Customer / supplier",
+  "chooseParty": "Choose party",
+  "reference": "Reference",
+  "allocation": "Apply to invoices",
+  "autoOldestFirst": "Oldest first (automatic)",
+  "unallocated": "Left as advance: {amount}",
+  "@unallocated": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "paymentSaved": "Payment saved",
+  "currentBalance": "Current balance: {amount}",
+  "@currentBalance": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "newExpense": "New expense",
+  "expenseCategory": "Expense type",
+  "addCategory": "Add type",
+  "expenseSaved": "Expense saved",
+  "receiptPhoto": "Receipt photo",
+  "noExpenses": "No expenses yet",
+  "openingCash": "Opening cash",
+  "cashSales": "Cash sales",
+  "cashReceived": "Cash received",
+  "cashPaid": "Cash paid out",
+  "cashExpenses": "Cash expenses",
+  "otherCash": "Other",
+  "expectedCash": "Expected in galla",
+  "countedCash": "Counted cash",
+  "countNotes": "Count notes",
+  "cashShort": "Short by {amount}",
+  "@cashShort": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "cashOver": "Over by {amount}",
+  "@cashOver": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "cashExact": "Exact match",
+  "closeGalla": "Close galla",
+  "gallaClosed": "Galla closed for today",
+  "gallaAlreadyClosed": "Closed: counted {counted}, difference {diff}",
+  "@gallaAlreadyClosed": {
+    "placeholders": {
+      "counted": {
+        "type": "String"
+      },
+      "diff": {
+        "type": "String"
+      }
+    }
+  },
+  "lowStockCount": "{count} items",
+  "@lowStockCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "activitySale": "Sale {no}",
+  "@activitySale": {
+    "placeholders": {
+      "no": {
+        "type": "String"
+      }
+    }
+  },
+  "backupBanner": "Back up your data",
+  "estimated": "estimated",
+  "reportDaily": "Daily summary",
+  "reportSalesItem": "Sales by item",
+  "reportSalesCategory": "Sales by category",
+  "reportSalesStaff": "Sales by staff",
+  "reportPnl": "Profit & loss",
+  "reportStockValue": "Stock value and list",
+  "reportLowStock": "Low stock",
+  "reportAgeing": "Customer dues ageing",
+  "reportSupplierDues": "Supplier dues",
+  "reportExpenses": "Expenses by category",
+  "reportCashBook": "Cash book",
+  "reportImeiSold": "IMEI sold list",
+  "reportRepairs": "Repairs",
+  "reportQist": "Qist collection and overdue",
+  "exportPdf": "PDF",
+  "exportCsv": "CSV",
+  "exportWarning": "This file contains your business data. Share it only with people you trust.",
+  "grossSales": "Gross sales",
+  "netSales": "Net sales",
+  "returnsLabel": "Returns",
+  "discountsLabel": "Discounts",
+  "cogsLabel": "Cost of goods sold",
+  "grossProfit": "Gross profit",
+  "otherIncome": "Other income",
+  "netProfit": "Net profit",
+  "expensesTotal": "Expenses",
+  "salesCount": "Sales count",
+  "qtySold": "Qty sold",
+  "amountLabel": "Amount",
+  "profitLabel": "Profit",
+  "age0to30": "0–30 days",
+  "age31to60": "31–60 days",
+  "age61to90": "61–90 days",
+  "age90plus": "90+ days",
+  "inflow": "In",
+  "outflow": "Out",
+  "openingLabel": "Opening",
+  "closingLabel": "Closing",
+  "reportEmpty": "Nothing in this period",
+  "soldTo": "Sold to",
+  "overdue": "Overdue",
+  "collected": "Collected",
+  "purchasesTotal": "Purchases",
+  "paymentsIn": "Payments in",
+  "paymentsOut": "Payments out",
+  "catRent": "Rent",
+  "catBijli": "Electricity",
+  "catSalary": "Salary",
+  "catChai": "Tea / refreshments",
+  "catTransport": "Transport",
+  "catOther": "Other",
+  "colItem": "Item",
+  "colStaff": "Staff",
+  "colSaleValue": "Sale value",
+  "colCount": "Count",
+  "colJobNo": "Job",
+  "colDevice": "Device",
+  "colNextDue": "Next due",
+  "colOther": "Other",
+  "fullReportPin": "Full reports need the owner PIN.",
+  "imeiSearchHint": "Type or scan an IMEI",
+  "imeiNotFound": "No phone with this IMEI",
+  "purchasedFrom": "Purchased from",
+  "boughtOn": "Bought on",
+  "soldOn": "Sold on",
+  "warranty": "Warranty",
+  "history": "History",
+  "openingStockSource": "Opening stock",
+  "usedPhoneNew": "Buy used phone",
+  "seller": "Seller",
+  "chooseSeller": "Choose seller",
+  "model": "Model",
+  "usedProduct": "Stock item (used phones)",
+  "grade": "Condition",
+  "gradeA": "A — like new",
+  "gradeB": "B — good",
+  "gradeC": "C — fair",
+  "pricePaid": "Price paid",
+  "cnicFront": "CNIC front",
+  "cnicBack": "CNIC back",
+  "devicePhotos": "Device photos",
+  "sellerReceipt": "Seller receipt",
+  "usedPhoneSaved": "Used phone added to stock",
+  "deleteIdentity": "Delete seller identity data",
+  "identityDeleted": "Identity data deleted. The purchase record stays.",
+  "viewCnic": "View CNIC (logged)",
+  "noUsedPhones": "No used phones bought yet",
+  "repairNew": "New repair job",
+  "problem": "Problem",
+  "estimate": "Estimate",
+  "advance": "Advance",
+  "expectedDate": "Expected date",
+  "technician": "Technician",
+  "rsReceived": "Received",
+  "rsDiagnosing": "Diagnosing",
+  "rsWaitingParts": "Waiting parts",
+  "rsReady": "Ready",
+  "rsDelivered": "Delivered",
+  "rsReturned": "Returned unrepaired",
+  "moveTo": "Move to",
+  "parts": "Parts",
+  "issuePart": "Use part from stock",
+  "returnPart": "Return unused part",
+  "partCharge": "Charge to customer",
+  "deliver": "Deliver",
+  "finalBill": "Final bill (labour + parts)",
+  "returnUnrepaired": "Return unrepaired",
+  "inspectionFee": "Inspection fee",
+  "refundAdvance": "Refund advance",
+  "collectPayment": "Collect payment",
+  "tokenSlip": "Token slip",
+  "readyMessage": "Assalam o Alaikum {name}, aapka {device} repair ho kar tayyar hai. Job {job}. Baqaya Rs {amount}. {shop}",
+  "@readyMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "device": {
+        "type": "String"
+      },
+      "job": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      },
+      "shop": {
+        "type": "String"
+      }
+    }
+  },
+  "sendReady": "Send ready message",
+  "noRepairs": "No repair jobs yet",
+  "outstanding": "Outstanding",
+  "openJobs": "Open",
+  "closedJobs": "Closed",
+  "repairSaved": "Repair job saved",
+  "qistSchedule": "Schedule",
+  "collectInstalment": "Collect instalment",
+  "cancelTakeBack": "Cancel and take device back",
+  "recoveryValue": "Agreed value of returned device",
+  "writeOff": "Write off the rest",
+  "writeOffConfirm": "The remaining amount will be booked as bad debt.",
+  "planActive": "Active",
+  "planCompleted": "Completed",
+  "planCancelled": "Cancelled",
+  "rowDue": "Due",
+  "rowPartial": "Partial",
+  "rowPaid": "Paid",
+  "rowOverdue": "Overdue",
+  "noQist": "No qist plans yet",
+  "overdueOnly": "Overdue",
+  "qistCollected": "Instalment collected",
+  "guarantor": "Guarantor"
 }

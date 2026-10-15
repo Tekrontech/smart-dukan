@@ -10,7 +10,11 @@ class MoneyFormat {
 
   static const _urdu = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
 
-  static String format(Money m, {bool symbol = true, bool urduDigits = false, bool showSign = false}) {
+  /// App-wide "Urdu digits" setting (spec Section 4), set from preferences.
+  static bool useUrduDigits = false;
+
+  static String format(Money m, {bool symbol = true, bool? urduDigits, bool showSign = false}) {
+    urduDigits ??= useUrduDigits;
     final negative = m.paisa < 0;
     final abs = m.paisa.abs();
     final rupees = abs ~/ 100;

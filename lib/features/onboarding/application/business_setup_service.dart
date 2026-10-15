@@ -139,6 +139,38 @@ class BusinessSetupService {
     }
   }
 
+  /// Shop profile and invoice settings (spec 5.11).
+  Future<void> updateProfile(
+    String businessId, {
+    String? name,
+    String? ownerName,
+    String? phone,
+    String? city,
+    String? address,
+    BusinessType? type,
+    String? logoPath,
+    String? invoicePrefix,
+    String? invoiceFooter,
+    String? invoiceTerms,
+  }) async {
+    String? clean(String? s) => s?.trim();
+    await (db.update(db.businesses)..where((b) => b.id.equals(businessId))).write(BusinessesCompanion(
+      name: name == null || name.trim().isEmpty ? const Value.absent() : Value(name.trim()),
+      ownerName: ownerName == null ? const Value.absent() : Value(ownerName.trim()),
+      phone: phone == null ? const Value.absent() : Value(clean(phone)!.isEmpty ? null : clean(phone)),
+      city: city == null ? const Value.absent() : Value(clean(city)!.isEmpty ? null : clean(city)),
+      address: address == null ? const Value.absent() : Value(clean(address)!.isEmpty ? null : clean(address)),
+      businessType: type == null ? const Value.absent() : Value(type),
+      logoPath: logoPath == null ? const Value.absent() : Value(logoPath.isEmpty ? null : logoPath),
+      invoicePrefix: invoicePrefix == null || invoicePrefix.trim().isEmpty
+          ? const Value.absent()
+          : Value(invoicePrefix.trim()),
+      invoiceFooter: invoiceFooter == null ? const Value.absent() : Value(clean(invoiceFooter)),
+      invoiceTerms: invoiceTerms == null ? const Value.absent() : Value(clean(invoiceTerms)),
+      updatedAt: Value(clock()),
+    ));
+  }
+
   /// Adds a custom expense category with its own account.
   Future<String> addExpenseCategory(String businessId, String name) async {
     return db.transaction(() async {
