@@ -134,3 +134,70 @@ returned) accepts payments and refunds only.
 ## D-022 — Used-phone purchase is its own document
 **Milestone 2.** It posts Dr Inventory / Cr Cash and creates an in-stock IMEI
 unit; it does not create a supplier purchase bill.
+
+## D-023 — PIN is 4 digits in the app
+**Milestone 3.** Spec 5.1 says "Set a 4-digit PIN", Section 9 allows 4–6.
+The PIN pad auto-submits after 4 digits; `PinService` accepts 4–6 so longer
+PINs can be added later without a data change. Hash: PBKDF2-SHA256,
+30,000 iterations, random 16-byte salt, run off the UI thread. Five wrong
+tries lock the pad for 30 seconds.
+
+## D-024 — Undo right after a sale needs no owner PIN
+**Milestone 5.** Section 9 requires the owner PIN for reversals, but the
+5-second Undo snackbar (Section 4) is for the cashier fixing a mis-tap.
+Undo still creates a reversal (never a delete) and is audit-logged; any
+later reversal asks for the owner PIN.
+
+## D-025 — "Heavy reports run in an isolate"
+**Milestone 7.** The database runs on its own background isolate
+(`NativeDatabase.createInBackground`) and every report aggregates in SQL,
+so the UI isolate never does heavy work. Measured: year-long reports with
+20,000 sales finish in under 0.5 s on desktop.
+
+## D-026 — Stock-value and dues reports are snapshots
+**Milestone 7.** Stock value, low stock, customer ageing and supplier dues
+show the position *now* and ignore the date range. Customer ageing buckets
+open invoices by age; opening balances and amounts not tied to an open
+invoice go in "Other".
+
+## D-027 — Licence key placeholder
+**Milestone 9.** The committed public key was generated during development
+and its private key destroyed. The owner must run
+`dart run tools/license_gen.dart init` before the pilot (see README).
+
+## D-028 — Install ID vs. lost secure storage
+**Milestone 9.** The spec's "secure storage lost but DB intact" case cannot
+fully happen: the database key itself lives in secure storage, so if
+secure storage is wiped the encrypted DB cannot be opened. The app then
+shows a "restore your backup" screen (`StartupErrorApp`). The install ID is
+still mirrored in the DB, and a mismatch between the two shows the
+re-activate notice on the licence screen.
+
+## D-029 — Printing in V1 uses the system print dialog
+**Milestone 5.** Receipts are 80 mm PDFs printed through Android's print
+service (and shared as PDF or PNG). Direct Bluetooth thermal printing is
+V1.1 in the spec.
+
+## D-030 — Google Play billing stays off
+**Milestone 9.** Only manual JazzCash/Easypaisa activation codes are
+implemented. A `play_billing_enabled` setting key is reserved for the
+feature flag; no billing library is included until Play policy is checked.
+
+## D-031 — Pro gating
+**Milestone 8.** Without Pro, creating new qist sales, used-phone purchases
+and repair jobs, and opening Pro reports, shows the "Get Pro" sheet.
+Existing Pro records, IMEI search and all exports stay available
+(spec Section 2: never lock a user out of their data).
+
+## D-032 — Android build not verified in the build environment
+**Milestone 10.** The AI build environment could not reach Google's Android
+SDK servers, so `flutter build appbundle` was not run there. Dart code is
+fully analysed and tested; the first Gradle build must be done on the
+owner's machine (README "Release build").
+
+## D-033 — CNIC retention runs at start-up
+**Milestone 9.** On each app start, seller identity data (CNIC number and
+photos) of phones sold more than the retention period ago (default 12
+months) is overwritten and deleted; the purchase record stays. Owners can
+also delete it on request from the used-phone screen. Every CNIC view and
+deletion is audit-logged without the CNIC itself.

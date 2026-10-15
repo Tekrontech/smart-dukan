@@ -27,6 +27,9 @@ import '../features/sales/data/sales_repository.dart';
 import '../features/parties/data/parties_repository.dart';
 import '../features/settings/application/user_service.dart';
 
+/// Wall clock, overridable in tests (golden screenshots need a fixed date).
+final clockProvider = Provider<DateTime Function()>((ref) => DateTime.now);
+
 /// The open encrypted database. Always overridden in `bootstrap` (or tests).
 final databaseProvider = Provider<AppDatabase>((ref) => throw UnimplementedError('databaseProvider not overridden'));
 

@@ -1,0 +1,4 @@
+# Performance tests are slow; run them explicitly: flutter test test/perf --tags perf
+tags:
+  perf:
+    skip: "Run with: flutter test test/perf --run-skipped --tags perf"

@@ -78,10 +78,12 @@ class ReportsService {
 
   Future<ReportTable> daily(DateTime from, DateTime to, ReportLabels l) async {
     final rows = await db.customSelect(
-      "SELECT strftime('%Y-%m-%d', s.date, 'unixepoch', 'localtime') d, COUNT(*) n, SUM(s.total) t, SUM(s.paid) p, SUM(s.due) u, "
-      '(SELECT COALESCE(SUM(si.cost_total),0) FROM sale_items si JOIN sales s2 ON s2.id = si.sale_id '
-      "  WHERE s2.status = 'posted' AND strftime('%Y-%m-%d', s2.date, 'unixepoch', 'localtime') = strftime('%Y-%m-%d', s.date, 'unixepoch', 'localtime')) c "
-      "FROM sales s WHERE s.status = 'posted' AND s.date >= ? AND s.date < ? GROUP BY d ORDER BY d",
+      'WITH s AS (SELECT id, total, paid, due, '
+      "  strftime('%Y-%m-%d', date, 'unixepoch', 'localtime') d FROM sales "
+      "  WHERE status = 'posted' AND date >= ? AND date < ?), "
+      'c AS (SELECT si.sale_id sid, SUM(si.cost_total) c FROM sale_items si JOIN s ON s.id = si.sale_id GROUP BY si.sale_id) '
+      'SELECT s.d d, COUNT(*) n, SUM(s.total) t, SUM(s.paid) p, SUM(s.due) u, SUM(COALESCE(c.c, 0)) c '
+      'FROM s LEFT JOIN c ON c.sid = s.id GROUP BY s.d ORDER BY s.d',
       variables: _range(from, to),
     ).get();
     final exp = {

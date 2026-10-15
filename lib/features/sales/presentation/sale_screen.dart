@@ -243,11 +243,11 @@ class _SaleScreenState extends ConsumerState<SaleScreen> {
                     : _grid
                         ? GridView.builder(
                             padding: const EdgeInsets.fromLTRB(AppSpacing.md, 0, AppSpacing.md, 120),
-                            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                               maxCrossAxisExtent: 200,
                               mainAxisSpacing: AppSpacing.sm,
                               crossAxisSpacing: AppSpacing.sm,
-                              mainAxisExtent: 168,
+                              mainAxisExtent: Directionality.of(context) == TextDirection.rtl ? 158 : 136,
                             ),
                             itemCount: hits.length,
                             itemBuilder: (context, i) => _ProductCard(

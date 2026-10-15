@@ -46,6 +46,7 @@ Future<Harness> pumpApp(
   Future<void> Function(AppDatabase db, BusinessCtx ctx)? seed,
   PinGate? pinGate,
   Size size = const Size(1080, 2280),
+  DateTime? now,
 }) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 3.0;
@@ -76,6 +77,7 @@ Future<Harness> pumpApp(
     pinGateProvider.overrideWithValue(pinGate ?? const AlwaysAllowPinGate()),
     biometricServiceProvider.overrideWithValue(_NoBiometrics()),
     proActiveProvider.overrideWith((ref) async => true),
+    if (now != null) clockProvider.overrideWithValue(() => now),
   ]);
   addTearDown(() async {
     container.dispose();

@@ -16,7 +16,7 @@ import '../../../core/widgets/stat_card.dart';
 import '../data/dashboard_repository.dart';
 
 final dashboardProvider = StreamProvider.autoDispose<DashboardStats>(
-    (ref) => DashboardRepository(ref.watch(databaseProvider)).watch(DateTime.now));
+    (ref) => DashboardRepository(ref.watch(databaseProvider)).watch(ref.watch(clockProvider)));
 
 final _homeFlagsProvider = FutureProvider.autoDispose<({bool coach, bool backupDue, bool demo})>((ref) async {
   final s = ref.watch(settingsRepoProvider);
@@ -68,7 +68,7 @@ class HomeScreen extends ConsumerWidget {
                         children: [
                           Text(session.business?.name ?? l.homeTitle,
                               style: theme.textTheme.headlineMedium, maxLines: 1, overflow: TextOverflow.ellipsis),
-                          Text('${l.homeTitle} • \u2066${Fmt.date(DateTime.now())}\u2069',
+                          Text('${l.homeTitle} • \u2066${Fmt.date(ref.watch(clockProvider)())}\u2069',
                               style: theme.textTheme.bodySmall, maxLines: 1, overflow: TextOverflow.ellipsis),
                           if (flags?.demo ?? false)
                             Text(l.demoBadge, style: theme.textTheme.labelSmall?.copyWith(color: c.secondary)),
@@ -105,12 +105,15 @@ class HomeScreen extends ConsumerWidget {
               ),
             SliverPadding(
               padding: const EdgeInsets.all(AppSpacing.md),
-              sliver: SliverGrid.count(
-                crossAxisCount: 2,
-                mainAxisSpacing: AppSpacing.sm + 4,
-                crossAxisSpacing: AppSpacing.sm + 4,
-                childAspectRatio: 1.35,
-                children: [
+              sliver: SliverGrid(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: AppSpacing.sm + 4,
+                  crossAxisSpacing: AppSpacing.sm + 4,
+                  // Nastaliq needs taller rows (DECISIONS.md D-007).
+                  mainAxisExtent: Directionality.of(context) == TextDirection.rtl ? 128 : 108,
+                ),
+                delegate: SliverChildListDelegate([
                   StatCard(
                     key: const Key('stat_today_sale'),
                     label: l.todaySale,
@@ -165,7 +168,7 @@ class HomeScreen extends ConsumerWidget {
                     icon: Icons.build_outlined,
                     onTap: () => context.push(Routes.repairs),
                   ),
-                ],
+                ]),
               ),
             ),
             SliverPadding(
