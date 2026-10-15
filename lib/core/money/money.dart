@@ -60,7 +60,45 @@ class Money implements Comparable<Money> {
     });
   }
 
+  /// Splits this amount across [weights] in proportion, using the largest
+  /// remainder method so the parts always sum exactly to this amount.
+  /// Used to prorate invoice discounts, tax and freight across lines
+  /// (spec Section 8.1). Zero total weight splits evenly.
+  List<Money> allocate(List<int> weights) {
+    if (weights.isEmpty) return const [];
+    if (weights.any((w) => w < 0)) throw ArgumentError('weights must not be negative');
+    final total = weights.fold<int>(0, (a, b) => a + b);
+    if (total == 0) return split(weights.length);
+
+    final sign = paisa < 0 ? -1 : 1;
+    final amount = paisa.abs();
+    final parts = <int>[];
+    final remainders = <int>[];
+    var used = 0;
+    for (final w in weights) {
+      final exact = amount * w;
+      parts.add(exact ~/ total);
+      remainders.add(exact % total);
+      used += exact ~/ total;
+    }
+    var left = amount - used;
+    final order = List<int>.generate(weights.length, (i) => i)
+      ..sort((a, b) {
+        final c = remainders[b].compareTo(remainders[a]);
+        return c != 0 ? c : a.compareTo(b);
+      });
+    for (final i in order) {
+      if (left == 0) break;
+      parts[i]++;
+      left--;
+    }
+    return [for (final p in parts) Money(sign * p)];
+  }
+
   Money abs() => Money(paisa.abs());
+
+  static Money min(Money a, Money b) => a <= b ? a : b;
+  static Money max(Money a, Money b) => a >= b ? a : b;
 
   static Money sum(Iterable<Money> values) => values.fold(zero, (a, b) => a + b);
 

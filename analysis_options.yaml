@@ -5,6 +5,7 @@ analyzer:
     - lib/core/l10n/gen/**
     - "**/*.g.dart"
     - "**/*.freezed.dart"
+    - build/**
 
 linter:
   rules:

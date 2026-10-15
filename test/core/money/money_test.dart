@@ -12,7 +12,7 @@ void main() {
       const a = Money.rupees(300);
       const b = Money(5050);
       expect((a + b).paisa, 35050);
-      expect((a - b).paisa, -20950);
+      expect((a - b).paisa, 24950);
       expect((-a).paisa, -30000);
       expect(a.times(10), const Money.rupees(3000));
     });
@@ -81,6 +81,25 @@ void main() {
       expect(MoneyFormat.parse('1.234'), isNull);
       expect(MoneyFormat.parse('abc'), isNull);
       expect(MoneyFormat.parse(''), isNull);
+    });
+  });
+
+  group('Money.allocate', () {
+    test('parts always sum to the total', () {
+      final parts = const Money(100).allocate([1, 1, 1]);
+      expect(Money.sum(parts), const Money(100));
+      expect(parts.map((m) => m.paisa), [34, 33, 33]);
+    });
+
+    test('proportional to weights, largest remainder', () {
+      expect(const Money(1000).allocate([300, 700]).map((m) => m.paisa), [300, 700]);
+      expect(const Money(10).allocate([1, 2]).map((m) => m.paisa), [3, 7]);
+      expect(Money.sum(const Money(-101).allocate([5, 5])), const Money(-101));
+    });
+
+    test('zero weights split evenly; empty is empty', () {
+      expect(const Money(5).allocate([0, 0]).map((m) => m.paisa), [3, 2]);
+      expect(const Money(5).allocate([]), isEmpty);
     });
   });
 }
